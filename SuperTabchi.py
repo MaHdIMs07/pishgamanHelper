@@ -140,7 +140,6 @@ async def user_message_handler(client, message):
                     Admins.append(int(admin_id))
                     await message.reply_text('ادمین با موفقیت اضافه شد.')
                 else:
-                    await message.reply_text('آیدی عددی مورد نظر یافت نشد!!!')
 
           elif match(r'^(Remove Admin|حذف ادمین)$', message.text, IGNORECASE):
                 admin_id = message.reply_to_message.text
@@ -148,7 +147,6 @@ async def user_message_handler(client, message):
                     Admins.remove(int(admin_id))
                     await message.reply_text('ادمین با موفقیت حذف شد.')
                 else:
-                    await message.reply_text('آیدی عددی مورد نظر یافت نشد!!!')
           elif match(r'^(Join|پیوستن)$', message.text, IGNORECASE):
                     await message.reply_text('لطفا صبر کنید(لینک هایی که در آن نیازمند ارسال ریکوست است در ربات پشتیبانی نمی شود)...')
                     matches = findall("https?://(?:t\.me|telegram\.me)/\S+", message.reply_to_message.text)
