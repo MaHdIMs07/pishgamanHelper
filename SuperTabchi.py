@@ -137,7 +137,7 @@ async def user_message_handler(client, message):
           elif match(r'^(Add admin|افزودن ادمین)$', message.text, IGNORECASE):
                 admin_id = message.reply_to_message.text
                 if checkId(admin_id):
-Admins.append(int(admin_id))
+                    Admins.append(int(admin_id))
                     await message.reply_text('ادمین با موفقیت اضافه شد.')
                 else:
                     await message.reply_text('Added')
@@ -243,8 +243,7 @@ Admins.append(int(admin_id))
               AdIDP.append(message.reply_to_message.id)   
           elif match(r'^(Help|راهنما)$', message.text, IGNORECASE):
                 await message.reply_text(text="""                          
-📚 راهنما تبچی HxD :
-pishgaman Helper >>
+Pishgaman Helper >>
 ◄ مشاهده وضعیت ربات 
                                                                              
 ❯❯ دستورات فارسی:
