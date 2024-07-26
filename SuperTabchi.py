@@ -137,16 +137,18 @@ async def user_message_handler(client, message):
           elif match(r'^(Add admin|افزودن ادمین)$', message.text, IGNORECASE):
                 admin_id = message.reply_to_message.text
                 if checkId(admin_id):
-                    Admins.append(int(admin_id))
+Admins.append(int(admin_id))
                     await message.reply_text('ادمین با موفقیت اضافه شد.')
-                else
+                else:
+                    await message.reply_text('Added')
 
           elif match(r'^(Remove Admin|حذف ادمین)$', message.text, IGNORECASE):
                 admin_id = message.reply_to_message.text
                 if checkId(admin_id):
                     Admins.remove(int(admin_id))
                     await message.reply_text('ادمین با موفقیت حذف شد.')
-                else
+                else:
+                    await message.reply_text('Added')
           elif match(r'^(Join|پیوستن)$', message.text, IGNORECASE):
                     await message.reply_text('لطفا صبر کنید(لینک هایی که در آن نیازمند ارسال ریکوست است در ربات پشتیبانی نمی شود)...')
                     matches = findall("https?://(?:t\.me|telegram\.me)/\S+", message.reply_to_message.text)
