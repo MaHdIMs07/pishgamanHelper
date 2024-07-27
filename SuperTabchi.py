@@ -104,37 +104,15 @@ async def bannerG_handler():
 async def user_message_handler(client, message):
     try:
         if message.from_user.id in Admins:
-          if match(r'^(Send to pv|ارسال به پیوی)$', message.text, IGNORECASE):
-            pvBanner = message.reply_to_message
-            await sendtopv(client, message, pvBanner)
-            await message.reply_text("تموم شد !")
-          elif match(r'^(Send to group|ارسال به گروه)$', message.text, IGNORECASE):
-            GAPBanner = message.reply_to_message
-            await sendtogroup(client, message, GAPBanner)
-            await message.reply_text("تموم شد !")
-          elif match(r'^(Set ad time group|تنظیم زمان ارسال به گروه)$', message.text, IGNORECASE):
-              timest = message.reply_to_message.text
-              if int(timest) >= 5:
-               await message.reply_text(f'زمان ما بین هر تبلیغ در گروه به (**{timest}**) دقیقه تغییر کرد!')
-               scheduler.remove_all_jobs()
-               Timerg.clear()
-               Timerg.append(int(timest))
-               scheduler.add_job(bannerG_handler, 'interval', minutes=Timerg[0])
-               scheduler.add_job(bannerP_handler, 'interval', minutes=Timerp[0])
-              else:
-                  await message.reply_text('ᴇʀʀᴏʀ : \nلطفا عددی بزرگتر از 4 وارد کنید!') 
-          elif match(r'^(Set ad time pv|تنظیم زمان ارسال به پیوی)$', message.text, IGNORECASE):
-              timest = message.reply_to_message.text
-              if int(timest) >= 5:
-               await message.reply_text(f'زمان ما بین هر تبلیغ در پیوی به (**{timest} **) دقیقه تغییر کرد!')
-               scheduler.remove_all_jobs()
-               Timerp.clear()
-               Timerp.append(int(timest))
-               scheduler.add_job(bannerP_handler, 'interval', minutes=Timerp[0])
-               scheduler.add_job(bannerG_handler, 'interval', minutes=Timerg[0])
-              else:
-                  await message.reply_text('ᴇʀʀᴏʀ : \nلطفا عددی بزرگتر از 4 وارد کنید!')
-          elif match(r'^(Add admin|افزودن ادمین)$', message.text, IGNORECASE):
+          if match(r'^(dns|دی ان اس)$', message.text, IGNORECASE):
+            await message.reply_text("Level3 DNS\n\n4.2.2.1\n4.2.2.2\n4.2.2.3\n4.2.2.4\n\n\nOpen DNS\n208.67.222.222\n208.67.220.220\n\n\nPTE DNS\n5.202.100.100\n5.202.100.101\n5.202.129.29\n\n\nGoogle\n8.8.8.8\n8.8.4.4\n\n\nQuad9 DNS\n9.9.9.9\n149.112.112.112\n\n\nAdGuard DNS\n94.140.14.14\n94.140.15.15\n\n\nCloudflare DNS\n1.1.1.1\n1.0.0.1")
+          elif match(r'^(Update|اپدیت)$', message.text, IGNORECASE):
+            await message.reply_text("__Pishgaman Helper Updated__\n\nVersion:1.0.1")
+          elif match(r'^(قطعی لینک|link down)$', message.text, IGNORECASE):
+               await message.reply_text(f'**Click Here >>**\n\n**>** https://t.me/pishgamanHelper/3')
+          elif match(r'^(تعرفه|tarefe)$', message.text, IGNORECASE):
+               await message.reply_text(f'**لیست تعرفه ها**\n\n**Click Here >>**\n\nhttps://t.me/pishgamanHelper/2')
+          elif match(r'^(addadmin|ادمین)$', message.text, IGNORECASE):
                 admin_id = message.reply_to_message.text
                 if checkId(admin_id):
                     Admins.append(int(admin_id))
@@ -160,11 +138,10 @@ async def user_message_handler(client, message):
                         except:
                             pass
                     await message.reply_text('ربات در تمامی چت ها عضو شد!')
-          elif match(r'^(Add member|افزودن به گروه)$', message.text, IGNORECASE):
-            await addgroup(client, idgap=message.chat.id)
-            await message.reply_text("تموم شد !")
+          elif match(r'^(انتقال|ent)$', message.text, IGNORECASE):
+            await message.reply_text("«انتقال اعتبار»\nدر دو مرحله خلاصه میشود\n\nامکان سنجی امکان انتقال 🅰️\n\nثبت درخواست انتقال اعتبار 🅱️\n\nدر مرحله اول خط مشترک بررسی می گردد و اگر موردی نبود ، مدارک اعلام می شود\nدر مرحله دوم بعد از تکمیل مدارک درخواست ثبت می شود\n\n-*-*-*-*-*-*-*-*-*-*-*-*-*\n\nمرحله اول 🅰️ – امکان سنجی\n\n🔰 موارد مربوط به استعلام :\nتحت پوشش باشد\nپورت آزاد وجود داشته باشد\nتوقف فروش نباشد\nاستعلام شاهکار و آسیاتک و مخابرات مثبت باشد\nخط فیبر DLC یا PCM نباشد\n\n⛔️ موارد غیر ممکن:\nانتقال از مرکز به مجتمع و\nبالعکس\nاز مجتمعی به مجتمع دیگر\nانتقال به خطی که رانژه دارد\n\n**⚠️ الزامات**\n**اطمینان از عدم وجود بدهی**\n**برقراری بوق خط شماره جدید**\n\n♻️ وضعیت پنل:\nوضعیت بهره برداری باشد (حداقل 10 روز و 5 گیگ حجم ترافیک باقی مانده)\nسرویس رزرو نداشته باشد ( اگر دارد درخواست برگشت از فروش ثبت شود)\n\n-*-*-*-*-*-*-*-*-*-*-*-*-*\nمرحله دوم🅱️:\n\nپس از تکمیل و تایید همه موارد بالا، اعلام مدارک به مشترک\n\n🔻مدارک:\nهزینه انتقال به خط جدید 132000 تومان ( اگر مجتمع هستند نیازی نیست)\nتصویر کارت ملی مالک پنل\nدرخواست دست نویس:\n– آدرس کامل\n-کد پستی\n-شماره همراه مشترک\n\nتماس برای ثبت درخواست ، از ثابت یا همراه پنل باشد\n\n✅ پس از تکمیل تمامی مراحل بالا، توضیحات تیکت شامل اطلاعات ذیل باشد و به CS تیکت نمایید\n\n📝\nباسلام\nمشترک با شماره تلفن …\nدرخواست انتقال سرویس خود به خط شماره … را دارند\nاحراز هویت صورت گرفته است\n\nو مشترک از خط ثابت/ شماره همراه خود تماس گرفته اند.\n\nتمامی موارد امکان سنجی بررسی شد و مشترک اماکن انتقال و تعویض خط را دارند\n\nشماره جدید:\nکد پستی محل جدید:\nآدرس محل:\nشماره همراه مشترک")
           elif match(r'^(Ping|ربات)$', message.text, IGNORECASE):
-                await message.reply_text("من فعالم !!")
+                await message.reply_text("**Pishgaman Helper Onlined**")
           elif match(r'^(Groups list|لیست گروه ها)$', message.text, IGNORECASE):
                 number = 1
                 await message.reply_text("لیست گروه هایی که ربات در آن عضو است :")
@@ -243,70 +220,16 @@ async def user_message_handler(client, message):
               AdIDP.append(message.reply_to_message.id)   
           elif match(r'^(Help|راهنما)$', message.text, IGNORECASE):
                 await message.reply_text(text="""                          
-Pishgaman Helper >>
-◄ مشاهده وضعیت ربات 
-                                                                             
-❯❯ دستورات فارسی:
-❯ `ربات`
-❯ `وضعیت`
-❯ `شماره ربات`
-❯ `لیست گروه ها`
-❯ `مشاهده تبلیغ گروه`
-❯ `مشاهده تبلیغ پیوی`
-                                         
-❯❯ دستورات انگلیسی:
-❯ `Ping`
-❯ `Stats`
-❯ `Bot number`
-❯ `Groups list`
-❯ `Vad group`
-❯ `Vad pv`
-                                         
-◄ دستورات خاموش | روشن کردن 
-                                                                             
-❯❯ دستورات فارسی:
-❯ `تبلیغ در گروه روشن`
-❯ `تبلیغ در گروه خاموش`
-❯ `تبلیغ در پیوی روشن`
-❯ `تبلیغ در پیوی خاموش`
-                                         
-❯❯ دستورات انگلیسی:
-❯ `Adgroup on`
-❯ `Adgroup off`
-❯ `Adpv on`
-❯ `Adpv off`
-                                         
-◄ دستورات مستقیم
-                                                                             
-❯❯ دستورات فارسی:
-❯ `ارسال به گروه` (ریپلای)
-❯ `ارسال به پیوی` (ریپلای)                                       
-                                         
-❯❯ دستورات انگلیسی:
-❯ `Send to group` (Reply)
-❯ `Send to pv` (Reply)
-                                                          
-◄ دستورات تنظیمی و دیگر قابلیت ها
-                                                                             
-❯❯ دستورات فارسی:
-❯ `تنظیم زمان ارسال به گروه` (ریپلای) (عدد به دقیقه)
-❯ `تنظیم زمان ارسال به پیوی` (ریپلای) (عدد به دقیقه)
-❯ `تنظیم تبلیغ گروه` (ریپلای)
-❯ `تنظیم تبلیغ پیوی` (ریپلای)
-❯ `پیوستن` (ریپلای) (لیست لینک ها)
-❯ `افزودن به گروه` (افزودن تمام کاربران پیوی به گروه جاری)
-❯ `افزودن ادمین` (ریپلای) (آیدی عددی کاربر)
-❯ `حذف ادمین` (ریپلای) (آیدی عددی کاربر)
-                                         
-❯❯ دستورات انگلیسی:
-❯ `Set ad time group` (Reply) (Numbers in Minutes)
-❯ `Set ad time pv` (Reply) (Numbers in Minutes)
-❯ `Set ad group` (Reply)
-❯ `Set ad pv` (Reply)
-❯ `Join` (Reply) (List of Links)
-❯ `Add member` (Add all Pv users to the current group)
-❯ `Add admin` (Reply) (ID)
-❯ `Remove admin` (Reply) (ID)
+**<< Pishgaman Helper >>**
+
+
+❯❯ دستورات فارسی فنی:
+❯ ربات - __وضیعت انلاینی ربات__
+❯ `قطعی لینک` - __روال قطعی لینک__
+❯ `قطعی اینترنت` - __روال قطعی اینترنت (PPPOE)__
+❯ `کندی` - __روال کندی سرعت__
+❯ `بریج` - __آموزش بریج__
+❯ `تنظیمات` - __تنظیمات مودم__
 """)
     
     
